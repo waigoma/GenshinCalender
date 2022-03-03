@@ -1,33 +1,24 @@
 freedom:
-  num: 1
+  type: 1
   day:
     - "月"
     - "木"
-  1:
-    name: "「自由」の教え"
-  2:
-    name: "「自由」の導き"
-  3:
-    name: "「自由」の哲学"
+  common: "「自由」の教え"
+  rare: "「自由」の導き"
+  epic: "「自由」の哲学"
 resistance:
-  num: 2
+  type: 2
   day:
     - "火"
     - "金"
-  1:
-    name: "「抵抗」の教え"
-  2:
-    name: "「抵抗」の導き"
-  3:
-    name: "「抵抗」の哲学"
+  common: "「抵抗」の教え"
+  rare: "「抵抗」の導き"
+  epic: "「抵抗」の哲学"
 ballad:
-  num: 3
+  type: 3
   day:
     - "水"
     - "土"
-  1:
-    name: "「詩文」の教え"
-  2:
-    name: "「詩文」の導き"
-  3:
-    name: "「詩文」の哲学"
+  common: "「詩文」の教え"
+  rare: "「詩文」の導き"
+  epic: "「詩文」の哲学"

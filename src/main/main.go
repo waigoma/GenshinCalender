@@ -7,13 +7,11 @@ import (
 )
 
 var characters yml.Characters
+var talentBooks yml.TalentBooks
 
 func main() {
 	characters = yml.LoadCharacters()
-
-	//for _, chara := range characters.Characters {
-	//	fmt.Println(chara.ENName, chara.JPName, chara.Type)
-	//}
+	talentBooks = yml.LoadTalentBooks()
 
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*.html")
