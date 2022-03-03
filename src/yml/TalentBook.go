@@ -13,7 +13,6 @@ type TalentBooks struct {
 
 type TalentBook struct {
 	ENName     string
-	Type       int
 	Day        []string
 	RarityName map[string]string
 }
@@ -29,14 +28,11 @@ func LoadTalentBooks() TalentBooks {
 	}
 
 	for key, value := range yamlData {
-		var t int
 		var day []string
 		var rarityName = make(map[string]string)
 
 		for k, val := range value.(map[interface{}]interface{}) {
 			switch k {
-			case "type":
-				t = val.(int)
 			case "day":
 				for _, v := range val.([]interface{}) {
 					day = append(day, v.(string))
@@ -46,7 +42,7 @@ func LoadTalentBooks() TalentBooks {
 			}
 		}
 
-		talentBooks.TalentBooks = append(talentBooks.TalentBooks, TalentBook{ENName: key, Type: t, Day: day, RarityName: rarityName})
+		talentBooks.TalentBooks = append(talentBooks.TalentBooks, TalentBook{ENName: key, Day: day, RarityName: rarityName})
 	}
 
 	return talentBooks

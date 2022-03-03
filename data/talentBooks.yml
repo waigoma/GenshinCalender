@@ -1,6 +1,5 @@
 # モンド
 freedom:
-  type: 1
   day:
     - "月"
     - "木"
@@ -8,7 +7,6 @@ freedom:
   rare: "「自由」の導き"
   epic: "「自由」の哲学"
 resistance:
-  type: 2
   day:
     - "火"
     - "金"
@@ -16,7 +14,6 @@ resistance:
   rare: "「抵抗」の導き"
   epic: "「抵抗」の哲学"
 ballad:
-  type: 3
   day:
     - "水"
     - "土"
@@ -26,7 +23,6 @@ ballad:
 
 # 璃月
 prosperity:
-  type: 4
   day:
     - "月"
     - "木"
@@ -34,7 +30,6 @@ prosperity:
   rare: "「繁栄」の導き"
   epic: "「繁栄」の哲学"
 diligence:
-  type: 5
   day:
     - "火"
     - "金"
@@ -42,7 +37,6 @@ diligence:
   rare: "「勤労」の導き"
   epic: "「勤労」の哲学"
 gold:
-  type: 6
   day:
     - "水"
     - "土"
@@ -52,7 +46,6 @@ gold:
 
 # 稲妻
 transience:
-  type: 7
   day:
     - "月"
     - "木"
@@ -60,7 +53,6 @@ transience:
   rare: "「浮世」の導き"
   epic: "「浮世」の哲学"
 elegance:
-  type: 8
   day:
     - "火"
     - "金"
@@ -68,7 +60,6 @@ elegance:
   rare: "「風雅」の導き"
   epic: "「風雅」の哲学"
 light:
-  type: 9
   day:
     - "水"
     - "土"

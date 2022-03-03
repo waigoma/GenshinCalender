@@ -13,9 +13,9 @@ type Characters struct {
 }
 
 type Character struct {
-	ENName string
-	JPName string
-	Type   int
+	ENName     string
+	JPName     string
+	TalentBook string
 }
 
 func LoadCharacters() Characters {
@@ -30,16 +30,17 @@ func LoadCharacters() Characters {
 
 	for key, value := range yamlData {
 		var nm string
-		var t int
+		var tb string
 		for k, v := range value.(map[interface{}]interface{}) {
-			if k == "name" {
+			switch k {
+			case "name":
 				nm = v.(string)
-			} else if k == "type" {
-				t = v.(int)
+			case "talentBook":
+				tb = v.(string)
 			}
 		}
 
-		characters.Characters = append(characters.Characters, Character{ENName: key, JPName: nm, Type: t})
+		characters.Characters = append(characters.Characters, Character{ENName: key, JPName: nm, TalentBook: tb})
 	}
 
 	sortCharacters()
@@ -48,5 +49,5 @@ func LoadCharacters() Characters {
 }
 
 func sortCharacters() {
-	sort.Slice(characters.Characters, func(i, j int) bool { return characters.Characters[i].Type < characters.Characters[j].Type })
+	sort.Slice(characters.Characters, func(i, j int) bool { return characters.Characters[i].ENName < characters.Characters[j].ENName })
 }

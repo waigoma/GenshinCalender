@@ -1,10 +1,12 @@
 albedo:
   name: "アルベド"
-  type: 1
+  talentBook: "ballad"
 aloy:
   name: "アーロイ"
-  type: 2
+  talentBook: "freedom"
 amber:
   name: "アンバー"
-  type: 3
-
+  talentBook: "freedom"
+aratakiItto:
+  name: "荒瀧一斗"
+  talentBook: "elegance"
