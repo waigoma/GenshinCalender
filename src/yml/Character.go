@@ -3,6 +3,7 @@ package yml
 import (
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
+	"sort"
 )
 
 var characters Characters
@@ -41,6 +42,11 @@ func LoadCharacters() Characters {
 		characters.Characters = append(characters.Characters, Character{ENName: key, JPName: nm, Type: t})
 	}
 
+	sortCharacters()
+
 	return characters
-	//fmt.Println(yamlData)
+}
+
+func sortCharacters() {
+	sort.Slice(characters.Characters, func(i, j int) bool { return characters.Characters[i].Type < characters.Characters[j].Type })
 }
