@@ -1,0 +1,10 @@
+albedo:
+  name: "アルベド"
+  type: 1
+aloy:
+  name: "アーロイ"
+  type: 2
+amber:
+  name: "アンバー"
+  type: 3
+
