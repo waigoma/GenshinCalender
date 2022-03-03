@@ -1,0 +1,22 @@
+1-2:
+  common: 3
+2-3:
+  rare: 2
+3-4:
+  rare: 4
+4-5:
+  rare: 6
+5-6:
+  rare: 9
+6-7:
+  epic: 4
+7-8:
+  epic: 6
+8-9:
+  epic: 12
+9-10:
+  epic: 16
+1-10:
+  common: 3
+  rare: 21
+  epic: 38
