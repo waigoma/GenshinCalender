@@ -14,6 +14,7 @@ func main() {
 	talentBooks = yml.LoadTalentBooks()
 
 	router := gin.Default()
+	router.Static("/src", "templates/src")
 	router.LoadHTMLGlob("templates/*.html")
 
 	web.RegisterIndexHandler(router, characters)

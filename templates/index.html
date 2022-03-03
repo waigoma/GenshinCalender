@@ -2,21 +2,24 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/index/css/index.css">
   <title>Genshin Calender</title>
 </head>
 <body>
+  <section class="main">
   <h1>原神 - 天賦素材</h1>
 
   <form action="/" method="post">
 
     {{ range $index, $character := .characters }}
-    <label>
+    <label class="checkbox_vert">
       <input type="checkbox" name="selectCharacter" value="{{ $character.ENName }}">
       {{ $character.ENName }}
     </label>
     {{ end }}
 
-    <input type="submit" value="submit">
+    <input class="submit_button" type="submit" value="submit">
   </form>
 
   <ul>
@@ -24,5 +27,6 @@
     <li>{{ $character.ENName }}({{ $character.JPName }}): {{ $character.Type }}</li>
     {{ end }}
   </ul>
+  </section>
 </body>
 </html>
