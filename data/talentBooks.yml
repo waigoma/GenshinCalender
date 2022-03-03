@@ -1,3 +1,4 @@
+# モンド
 freedom:
   type: 1
   day:
@@ -22,3 +23,55 @@ ballad:
   common: "「詩文」の教え"
   rare: "「詩文」の導き"
   epic: "「詩文」の哲学"
+
+# 璃月
+prosperity:
+  type: 4
+  day:
+    - "月"
+    - "木"
+  common: "「繁栄」の教え"
+  rare: "「繁栄」の導き"
+  epic: "「繁栄」の哲学"
+diligence:
+  type: 5
+  day:
+    - "火"
+    - "金"
+  common: "「勤労」の教え"
+  rare: "「勤労」の導き"
+  epic: "「勤労」の哲学"
+gold:
+  type: 6
+  day:
+    - "水"
+    - "土"
+  common: "「黄金」の教え"
+  rare: "「黄金」の導き"
+  epic: "「黄金」の哲学"
+
+# 稲妻
+transience:
+  type: 7
+  day:
+    - "月"
+    - "木"
+  common: "「浮世」の教え"
+  rare: "「浮世」の導き"
+  epic: "「浮世」の哲学"
+elegance:
+  type: 8
+  day:
+    - "火"
+    - "金"
+  common: "「風雅」の教え"
+  rare: "「風雅」の導き"
+  epic: "「風雅」の哲学"
+light:
+  type: 9
+  day:
+    - "水"
+    - "土"
+  common: "「天光」の教え"
+  rare: "「天光」の導き"
+  epic: "「天光」の哲学"
