@@ -6,24 +6,22 @@ import (
 	"net/http"
 )
 
-var characters yml.Characters
-
-func RegisterIndexHandler(router *gin.Engine, chs yml.Characters) {
+func RegisterResultHandler(router *gin.Engine, chs yml.Characters) {
 	characters = chs
-	router.GET("/", indexGetHandle)
-	router.POST("/", indexPostHandle)
+	router.GET("/result", resultGetHandle)
+	router.POST("/result", resultPostHandle)
 }
 
-func indexGetHandle(ctx *gin.Context) {
+func resultGetHandle(ctx *gin.Context) {
 	ctx.HTML(
 		http.StatusOK,
-		"index.html",
+		"result.html",
 		gin.H{
-			"characters": characters.Characters,
+			"selectedCharacters": characters.Characters,
 		})
 }
 
-func indexPostHandle(ctx *gin.Context) {
+func resultPostHandle(ctx *gin.Context) {
 	selectedCharacters := ctx.PostFormArray("selectCharacter")
 	var selectedCharactersList []yml.Character
 
@@ -42,7 +40,6 @@ func indexPostHandle(ctx *gin.Context) {
 		http.StatusOK,
 		"result.html",
 		gin.H{
-			"characters":         characters.Characters,
 			"selectedCharacters": selectedCharactersList,
 		})
 }

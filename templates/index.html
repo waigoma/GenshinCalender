@@ -7,8 +7,11 @@
   <title>Genshin Calender</title>
 </head>
 <body>
+
   <section class="main">
+
   <h1>原神 - 天賦素材</h1>
+  <h2>育成したいキャラクターを選択！</h2>
 
   <form action="/" method="post">
 
@@ -19,14 +22,10 @@
     </label>
     {{ end }}
 
-    <input class="submit_button" type="submit" value="submit">
+    <input class="submit_button" type="submit" value="次へ">
   </form>
 
-  <ul>
-    {{ range $index, $character := .selectedCharacters }}
-    <li>{{ $character.ENName }}({{ $character.JPName }}): {{ $character.TalentBook }}</li>
-    {{ end }}
-  </ul>
   </section>
+
 </body>
 </html>
