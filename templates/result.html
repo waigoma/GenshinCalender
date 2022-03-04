@@ -17,8 +17,8 @@
                     {{ range $i, $value := $character.Talent }}
                     <p class="inner-name">{{ $value.Name }}: {{ $value.Count }}</p>
                     {{ end }}
-                    <p>秘境の曜日</p>
-                    <p class="inner-name">
+                    <p class="date">秘境の曜日</p>
+                    <p class="date-text">
                         {{ range $i, $value := $character.Day }}
                         {{ $value }} /
                         {{ end }}

@@ -26,6 +26,16 @@
     margin: 0 2em;
 }
 
+.date {
+    margin-top: 1.5em;
+}
+
+.date-text {
+    font-size: 1.25em;
+    padding-left: 1em;
+}
+
 .out-ul {
-    padding-left: 2em;
+    font-size: 1.5em;
+    margin-left: 15%;
 }
