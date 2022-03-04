@@ -1,0 +1,5 @@
+package resin
+
+func CalculateNeedResin() {
+
+}
