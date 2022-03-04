@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="src/css/style.css">
-    <link rel="stylesheet" href="src/result/css/result.css">
+    <link rel="stylesheet" href="src/select/css/select.css">
     <title>Genshin Calender</title>
 </head>
 <body>
     <section class="main">
-        <ul>
-            {{ range $index, $selectedCharacter := .selectedCharacters }}
-            <li> {{ $selectedCharacter.Character.ENName }}({{ $selectedCharacter.Character.JPName }})
-                <ul class="inner-ul">
-                    {{ range $key, $value := $selectedCharacter.Talent }}
-                    <li> {{ $value.Name }}: {{ $value.Count }} </li>
-                    {{ end }}
-                </ul>
-            </li>
+        <h1>何レベル上げるか選択！</h1>
+
+        <form action="/result" method="post">
+
+            {{ range $index, $character := .characters }}
+            <label class="label_vert">
+                <input type="hidden" name="character" value="{{ $character.ENName }}">
+                {{ $character.JPName }}:
+                <input class="number" type="number" name="from" value="1" min="1" max="9">
+                 ->
+                <input class="number" type="number" name="to" value="10" min="2" max="10">
+            </label>
             {{ end }}
-        </ul>
+
+            <input class="submit_button" type="submit" value="次へ">
+        </form>
+
     </section>
 </body>
 </html>

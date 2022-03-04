@@ -17,7 +17,7 @@
 
     {{ range $index, $character := .characters }}
     <label class="checkbox_vert">
-      <input type="checkbox" name="selectCharacter" value="{{ $character.ENName }}">
+      <input type="checkbox" name="selectedCharacter" value="{{ $character.ENName }}">
       {{ $character.JPName }}
     </label>
     {{ end }}
