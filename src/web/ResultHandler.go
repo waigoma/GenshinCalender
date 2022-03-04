@@ -181,13 +181,13 @@ func getResult(selectForms []SelectForm) []character.Stats {
 
 		// 天賦本の数を取得
 		for key, value := range talentBookCount {
-			// 天賦本名と一致した場合
+			// 天賦レアリティ名と一致した場合
 			if val, ok := talentBook.RarityName[key]; ok {
 				talents = append(talents, character.Talent{Type: key, Name: val, Count: value})
 			}
 		}
 
-		characterStatList = append(characterStatList, character.Stats{Character: chara, Talent: talents})
+		characterStatList = append(characterStatList, character.Stats{Character: chara, Talent: talents, Day: talentBook.Day})
 	}
 
 	return characterStatList

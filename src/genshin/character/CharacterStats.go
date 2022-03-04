@@ -3,6 +3,7 @@ package character
 type Stats struct {
 	Character Character
 	Talent    []Talent
+	Day       []string
 }
 
 type Talent struct {

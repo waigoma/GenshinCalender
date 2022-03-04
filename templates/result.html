@@ -17,6 +17,13 @@
                     {{ range $i, $value := $character.Talent }}
                     <p class="inner-name">{{ $value.Name }}: {{ $value.Count }}</p>
                     {{ end }}
+                    <p>秘境の曜日</p>
+                    <p class="inner-name">
+                        {{ range $i, $value := $character.Day }}
+                        {{ $value }} /
+                        {{ end }}
+                        日
+                    </p>
                 </div>
                 <img src="src/result/img/{{ $character.Character.TalentBook }}.png" alt="{{ $character.Character.TalentBook }}">
             </div>
