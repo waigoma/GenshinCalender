@@ -8,16 +8,21 @@
 </head>
 <body>
     <section class="main">
-        <ul>
-            {{ range $index, $character := .characterStatList }}
-            <li> {{ $character.Character.ENName }}({{ $character.Character.JPName }})
-                <ul class="inner-ul">
+        <h1>必要な天賦本</h1>
+        {{ range $index, $character := .characterStatList }}
+        <div class="container">
+            <h2 class="name">{{ $character.Character.JPName }}</h2>
+            <div class="inner-container">
+                <div class="inner-div">
                     {{ range $i, $value := $character.Talent }}
-                    <li> {{ $value.Name }}: {{ $value.Count }} </li>
+                    <p class="inner-name">{{ $value.Name }}: {{ $value.Count }}</p>
                     {{ end }}
-                </ul>
-            </li>
-            {{ end }}
+                </div>
+                <img src="src/result/img/{{ $character.Character.TalentBook }}.png" alt="{{ $character.Character.TalentBook }}">
+            </div>
+        </div>
+        {{ end }}
+        <ul class="out-ul">
             <li>必要樹脂数: {{ .totalResin }} </li>
             <li>必要濃縮樹脂: {{ .condensedResin}} </li>
             <li>回復時間: {{ .totalTime }} </li>
