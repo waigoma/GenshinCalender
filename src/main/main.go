@@ -19,7 +19,7 @@ func main() {
 	router.Static("/src", "templates/src")
 	router.LoadHTMLGlob("templates/*.html")
 
-	web.RegisterIndexHandler(router, characters)
+	web.RegisterIndexHandler(router, characters, talentBooks, talentBookCounts)
 	web.RegisterResultHandler(router, characters)
 
 	err := router.Run()
