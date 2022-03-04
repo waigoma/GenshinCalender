@@ -53,13 +53,16 @@ func resultPostHandle(ctx *gin.Context) {
 	// 回復時間 (分)
 	totalTime := resin.CalculateRegenTime(totalResin, resin.ModeMinute)
 
+	totalTimeStr := useful.MinuteToTime(int(totalTime))
+
 	ctx.HTML(
 		http.StatusOK,
 		"result.html",
 		gin.H{
 			"characterStatList": characterStatList,
 			"totalResin":        totalResin,
-			"totalTime":         totalTime,
+			"condensedResin":    totalResin / 40,
+			"totalTime":         totalTimeStr,
 		})
 }
 
