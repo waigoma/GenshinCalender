@@ -1,5 +1,6 @@
 .checkbox_vert {
     display: block;
+    user-select: none;
     padding: 0.25em 0 0.25em 1em;
 }
 
