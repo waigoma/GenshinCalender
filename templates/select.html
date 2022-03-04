@@ -13,13 +13,14 @@
         <form action="/result" method="post">
 
             {{ range $index, $character := .characters }}
+            <div class="container">
             <h2>{{ $character.JPName }}: </h2>
 
-            <label class="label_vert">
+            <label>
                 <input type="hidden" name="character" value="{{ $character.ENName }}">
             </label>
 
-            <label class="label_vert">
+            <label>
                 <input type="checkbox"  name="normalAttack" value="{{ $character.ENName }}" checked>
                 通常攻撃:
                 <input class="number" type="number" name="from1" value="1" min="1" max="9">
@@ -27,7 +28,7 @@
                 <input class="number" type="number" name="to1" value="10" min="2" max="10">
             </label>
 
-            <label class="label_vert">
+            <label>
                 <input type="checkbox"  name="skillAttack" value="{{ $character.ENName }}" checked>
                 元素スキル:
                 <input class="number" type="number" name="from2" value="1" min="1" max="9">
@@ -35,17 +36,18 @@
                 <input class="number" type="number" name="to2" value="10" min="2" max="10">
             </label>
 
-            <label class="label_vert">
+            <label>
                 <input type="checkbox"  name="ultAttack" value="{{ $character.ENName }}" checked>
                 元素爆発:
                 <input class="number" type="number" name="from3" value="1" min="1" max="9">
                 ->
                 <input class="number" type="number" name="to3" value="10" min="2" max="10">
             </label>
+            </div>
             {{ end }}
 
-            <h2>1 回のドロップ数:</h2>
-            <label class="label_vert">
+            <h2>秘境 1 回のドロップ数:</h2>
+            <label class="label-vert">
                 緑:
                 <input class="number" type="number" name="common" value="2" min="2" max="3">
                 <br/>

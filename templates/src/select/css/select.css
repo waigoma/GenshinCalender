@@ -1,12 +1,19 @@
-.main {
-    max-width: 1100px;
-    width: 100%;
-    margin: 20px auto 0;
+.container {
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.label_vert {
+.container label {
+    user-select: none;
+    margin: 0 1em;
+}
+
+.label-vert {
     display: block;
-    padding: 0.25em 0 0.25em 1em;
+    user-select: none;
+    margin-left: 1em;
 }
 
 .number {
