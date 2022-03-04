@@ -1,6 +1,6 @@
-package yml
+package character
 
-type CharacterStats struct {
+type Stats struct {
 	Character Character
 	Talent    []Talent
 }
