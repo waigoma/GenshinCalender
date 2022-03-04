@@ -3,6 +3,8 @@ package web
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/waigoma/GenshinCalender/src/genshin/character"
+	"github.com/waigoma/GenshinCalender/src/genshin/region"
+	"github.com/waigoma/GenshinCalender/src/genshin/resin"
 	"github.com/waigoma/GenshinCalender/src/genshin/talent"
 	"net/http"
 )
@@ -28,11 +30,32 @@ func resultPostHandle(ctx *gin.Context) {
 
 	characterStatList := getResult(characterArray, fromArray, toArray)
 
+	var totalResin int
+
+	for _, characterStat := range characterStatList {
+		// 必要な天賦本数を計算
+		var needTalent int
+		for _, books := range characterStat.Talent {
+			needTalent += talent.CalculateTalentBooks(map[string]int{books.Type: books.Count})
+		}
+
+		// 周回数を計算
+		grindTime := region.CalculateGrind(needTalent)
+
+		// 必要な樹脂数
+		totalResin += resin.CalculateNeedResin(grindTime)
+	}
+
+	// 回復時間 (分)
+	totalTime := resin.CalculateRegenTime(totalResin, resin.ModeMinute)
+
 	ctx.HTML(
 		http.StatusOK,
 		"result.html",
 		gin.H{
 			"characterStatList": characterStatList,
+			"totalResin":        totalResin,
+			"totalTime":         totalTime,
 		})
 }
 
@@ -57,7 +80,7 @@ func getResult(characterArray []string, fromArray []string, toArray []string) []
 		for key, value := range talentBookCount {
 			// 天賦本名と一致した場合
 			if val, ok := talentBook.RarityName[key]; ok {
-				talents = append(talents, character.Talent{Name: val, Count: value})
+				talents = append(talents, character.Talent{Type: key, Name: val, Count: value})
 			}
 		}
 
