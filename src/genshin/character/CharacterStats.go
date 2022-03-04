@@ -6,6 +6,7 @@ type Stats struct {
 }
 
 type Talent struct {
+	Type  string
 	Name  string
 	Count int
 }
