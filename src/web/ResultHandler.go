@@ -80,6 +80,7 @@ func resultPostHandle(ctx *gin.Context) {
 		})
 }
 
+// フォームから受け取ったデータを処理する
 func initSelectForm(ctx *gin.Context) []SelectForm {
 	var fromArray [][]string
 	var toArray [][]string
@@ -148,6 +149,7 @@ func initSelectForm(ctx *gin.Context) []SelectForm {
 	return selectForms
 }
 
+// html に渡す値を作成
 func getResult(selectForms []SelectForm) []character.Stats {
 	var characterStatList []character.Stats
 
