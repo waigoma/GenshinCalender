@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="src/css/style.css">
-  <link rel="stylesheet" href="src/index/css/index.css">
-  <title>Genshin Calender</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/index/css/index.css">
+    <title>Genshin Calender</title>
 </head>
 <body>
 
-  <section class="main">
+<section class="main">
 
-  <h1>原神 - 天賦素材</h1>
-  <h2>育成したいキャラクターを選択！</h2>
+    <h1>原神 - 天賦素材</h1>
+    <h2>育成したいキャラクターを選択！</h2>
 
-  <form action="/" method="post">
+    <form action="/" method="post">
 
-    {{ range $index, $character := .characters }}
-    <label class="checkbox_vert">
-      <input type="checkbox" name="selectedCharacter" value="{{ $character.ENName }}">
-      {{ $character.JPName }}
-    </label>
-    {{ end }}
+        {{ range $index, $character := .characters }}
+        <label class="checkbox_vert">
+            <input type="checkbox" name="selectedCharacter" value="{{ $character.ENName }}">
+            {{ $character.JPName }}
+        </label>
+        {{ end }}
 
-    <input class="submit_button" type="submit" value="次へ">
-  </form>
+        <input class="submit_button" type="submit" value="次へ">
+    </form>
 
-  </section>
+</section>
 
 </body>
 </html>
