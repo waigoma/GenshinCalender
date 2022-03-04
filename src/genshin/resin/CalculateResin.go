@@ -1,7 +1,6 @@
 package resin
 
 import (
-	"fmt"
 	"github.com/waigoma/GenshinCalender/src/genshin/character"
 	"github.com/waigoma/GenshinCalender/src/genshin/region"
 	"github.com/waigoma/GenshinCalender/src/genshin/talent"
@@ -51,7 +50,6 @@ func CalculateTotalResin(characterStatList []character.Stats, customDropBook map
 
 		// 周回数を計算
 		grindTime := region.CalculateGrind(needTalent, customDrop)
-		fmt.Println(needTalent, customDrop, grindTime)
 
 		// 必要な樹脂数
 		totalResin += CalculateNeedResin(grindTime)
