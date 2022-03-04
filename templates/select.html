@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/result/css/result.css">
+    <title>Genshin Calender</title>
+</head>
+<body>
+    <section class="main">
+        <ul>
+            {{ range $index, $selectedCharacter := .selectedCharacters }}
+            <li> {{ $selectedCharacter.Character.ENName }}({{ $selectedCharacter.Character.JPName }})
+                <ul class="inner-ul">
+                    {{ range $key, $value := $selectedCharacter.Talent }}
+                    <li> {{ $value.Name }}: {{ $value.Count }} </li>
+                    {{ end }}
+                </ul>
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+</body>
+</html>
