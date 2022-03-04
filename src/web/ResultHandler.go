@@ -22,11 +22,19 @@ type TalentForm struct {
 	To   string
 }
 
+type DropForm struct {
+	Common string
+	Rare   string
+	Epic   string
+}
+
 const (
 	NormalAttack Type = iota
 	SkillAttack
 	ULTAttack
 )
+
+var dropForm DropForm
 
 func RegisterResultHandler(router *gin.Engine) {
 	router.GET("/result", resultGetHandle)
@@ -48,7 +56,13 @@ func resultPostHandle(ctx *gin.Context) {
 	characterStatList := getResult(initSelectForm(ctx))
 
 	// 必要樹脂数
-	totalResin := resin.CalculateTotalResin(characterStatList)
+	customDrop := map[string]int{
+		"common": useful.StringToInt(dropForm.Common),
+		"rare":   useful.StringToInt(dropForm.Rare),
+		"epic":   useful.StringToInt(dropForm.Epic),
+	}
+
+	totalResin := resin.CalculateTotalResin(characterStatList, customDrop)
 
 	// 回復時間 (分)
 	totalTime := resin.CalculateRegenTime(totalResin, resin.ModeMinute)
@@ -67,12 +81,6 @@ func resultPostHandle(ctx *gin.Context) {
 }
 
 func initSelectForm(ctx *gin.Context) []SelectForm {
-	// 必要なデータを Context から取得
-	characterArray := ctx.PostFormArray("character")
-	NormalAttackArray := ctx.PostFormArray("normalAttack")
-	SkillAttackArray := ctx.PostFormArray("skillAttack")
-	ULTAttackArray := ctx.PostFormArray("ultAttack")
-
 	var fromArray [][]string
 	var toArray [][]string
 
@@ -86,6 +94,12 @@ func initSelectForm(ctx *gin.Context) []SelectForm {
 			}
 		}
 	}
+
+	// 必要なデータを Context から取得
+	characterArray := ctx.PostFormArray("character")
+	NormalAttackArray := ctx.PostFormArray("normalAttack")
+	SkillAttackArray := ctx.PostFormArray("skillAttack")
+	ULTAttackArray := ctx.PostFormArray("ultAttack")
 
 	// SelectForm struct にプロットしていく
 	var selectForms []SelectForm
@@ -121,6 +135,15 @@ func initSelectForm(ctx *gin.Context) []SelectForm {
 
 		selectForms = append(selectForms, selectForm)
 	}
+
+	// 必要なデータを Context から取得
+	commonBook := ctx.PostForm("common")
+	rareBook := ctx.PostForm("rare")
+	epicBook := ctx.PostForm("epic")
+
+	dropForm.Common = commonBook
+	dropForm.Rare = rareBook
+	dropForm.Epic = epicBook
 
 	return selectForms
 }

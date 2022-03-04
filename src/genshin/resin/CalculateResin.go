@@ -1,6 +1,7 @@
 package resin
 
 import (
+	"fmt"
 	"github.com/waigoma/GenshinCalender/src/genshin/character"
 	"github.com/waigoma/GenshinCalender/src/genshin/region"
 	"github.com/waigoma/GenshinCalender/src/genshin/talent"
@@ -37,7 +38,7 @@ func CalculateRegenTime(reqResin int, mode Mode) float64 {
 	}
 }
 
-func CalculateTotalResin(characterStatList []character.Stats) int {
+func CalculateTotalResin(characterStatList []character.Stats, customDropBook map[string]int) int {
 	var totalResin int
 	for _, characterStat := range characterStatList {
 		// 必要な天賦本数を計算
@@ -46,8 +47,11 @@ func CalculateTotalResin(characterStatList []character.Stats) int {
 			needTalent += talent.CalculateTalentBooks(map[string]int{books.Type: books.Count})
 		}
 
+		customDrop := talent.CalculateTalentBooks(customDropBook)
+
 		// 周回数を計算
-		grindTime := region.CalculateGrind(needTalent)
+		grindTime := region.CalculateGrind(needTalent, customDrop)
+		fmt.Println(needTalent, customDrop, grindTime)
 
 		// 必要な樹脂数
 		totalResin += CalculateNeedResin(grindTime)
