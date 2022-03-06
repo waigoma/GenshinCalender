@@ -7,9 +7,10 @@ import (
 	"github.com/waigoma/GenshinCalender/src/genshin/talent"
 	"github.com/waigoma/GenshinCalender/src/useful"
 	"net/http"
+	"sort"
 )
 
-type Type int
+type AttackType int
 
 type SelectForm struct {
 	CharacterName string
@@ -17,7 +18,7 @@ type SelectForm struct {
 }
 
 type TalentForm struct {
-	Type Type
+	Type AttackType
 	From string
 	To   string
 }
@@ -29,12 +30,10 @@ type DropForm struct {
 }
 
 const (
-	NormalAttack Type = iota
+	NormalAttack AttackType = iota
 	SkillAttack
 	ULTAttack
 )
-
-var dropForm DropForm
 
 func RegisterResultHandler(router *gin.Engine) {
 	router.GET("/result", resultGetHandle)
@@ -43,17 +42,12 @@ func RegisterResultHandler(router *gin.Engine) {
 
 func resultGetHandle(ctx *gin.Context) {
 	ctx.Redirect(http.StatusFound, "/")
-	ctx.HTML(
-		http.StatusOK,
-		"result.html",
-		gin.H{
-			"selectedCharacters": character.GetAllCharacters(),
-		})
 }
 
 func resultPostHandle(ctx *gin.Context) {
 	// フォームから受け取ったデータを CharacterStat に変換
-	characterStatList := getResult(initSelectForm(ctx))
+	selectForm, dropForm := initSelectForm(ctx)
+	characterStatList := getResult(selectForm)
 
 	// 必要樹脂数
 	customDrop := map[string]int{
@@ -62,11 +56,13 @@ func resultPostHandle(ctx *gin.Context) {
 		"epic":   useful.StringToInt(dropForm.Epic),
 	}
 
+	// 消費スタミナ量
 	totalResin := resin.CalculateTotalResin(characterStatList, customDrop)
 
 	// 回復時間 (分)
 	totalTime := resin.CalculateRegenTime(totalResin, resin.ModeMinute)
 
+	// 回復時間を見やすい形式に変換
 	totalTimeStr := useful.MinuteToTime(int(totalTime))
 
 	ctx.HTML(
@@ -81,7 +77,7 @@ func resultPostHandle(ctx *gin.Context) {
 }
 
 // フォームから受け取ったデータを処理する
-func initSelectForm(ctx *gin.Context) []SelectForm {
+func initSelectForm(ctx *gin.Context) ([]SelectForm, DropForm) {
 	var fromArray [][]string
 	var toArray [][]string
 
@@ -142,11 +138,13 @@ func initSelectForm(ctx *gin.Context) []SelectForm {
 	rareBook := ctx.PostForm("rare")
 	epicBook := ctx.PostForm("epic")
 
-	dropForm.Common = commonBook
-	dropForm.Rare = rareBook
-	dropForm.Epic = epicBook
+	dropForm := DropForm{
+		Common: commonBook,
+		Rare:   rareBook,
+		Epic:   epicBook,
+	}
 
-	return selectForms
+	return selectForms, dropForm
 }
 
 // html に渡す値を作成
@@ -186,6 +184,9 @@ func getResult(selectForms []SelectForm) []character.Stats {
 				talents = append(talents, character.Talent{Type: key, Name: val, Count: value})
 			}
 		}
+
+		// 必要天賦本を少ない順にソート
+		sort.Slice(talents, func(i, j int) bool { return talents[i].Count < talents[j].Count })
 
 		characterStatList = append(characterStatList, character.Stats{Character: chara, Talent: talents, Day: talentBook.Day})
 	}
