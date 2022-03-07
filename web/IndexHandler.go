@@ -2,7 +2,7 @@ package web
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/waigoma/GenshinCalender/src/genshin/character"
+	"github.com/waigoma/GenshinCalender/internal/genshin/character"
 	"net/http"
 )
 

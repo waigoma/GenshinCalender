@@ -1,7 +1,7 @@
 package talent
 
 import (
-	"github.com/waigoma/GenshinCalender/src/useful"
+	"github.com/waigoma/GenshinCalender/pkg/useful"
 	"strconv"
 )
 

@@ -1,9 +1,9 @@
 package resin
 
 import (
-	"github.com/waigoma/GenshinCalender/src/genshin/character"
-	"github.com/waigoma/GenshinCalender/src/genshin/region"
-	"github.com/waigoma/GenshinCalender/src/genshin/talent"
+	"github.com/waigoma/GenshinCalender/internal/genshin/character"
+	"github.com/waigoma/GenshinCalender/internal/genshin/region"
+	"github.com/waigoma/GenshinCalender/internal/genshin/talent"
 )
 
 type Mode int

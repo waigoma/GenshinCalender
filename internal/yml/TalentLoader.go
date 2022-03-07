@@ -1,22 +1,22 @@
 package yml
 
 import (
-	"github.com/waigoma/GenshinCalender/src/genshin/talent"
+	talent2 "github.com/waigoma/GenshinCalender/internal/genshin/talent"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 )
 
-func LoadTalentBooks() []talent.Book {
+func LoadTalentBooks() []talent2.Book {
 	s, _ := ioutil.ReadFile("assets/data/talentBooks.yml")
 
 	var yamlData map[string]interface{}
 	err := yaml.Unmarshal(s, &yamlData)
 
 	if err != nil {
-		return []talent.Book{}
+		return []talent2.Book{}
 	}
 
-	var talentBooks []talent.Book
+	var talentBooks []talent2.Book
 
 	for key, value := range yamlData {
 		var day []string
@@ -33,23 +33,23 @@ func LoadTalentBooks() []talent.Book {
 			}
 		}
 
-		talentBooks = append(talentBooks, talent.Book{ENName: key, Day: day, RarityName: rarityName})
+		talentBooks = append(talentBooks, talent2.Book{ENName: key, Day: day, RarityName: rarityName})
 	}
 
 	return talentBooks
 }
 
-func LoadTalentBookCounts() []talent.BookCount {
+func LoadTalentBookCounts() []talent2.BookCount {
 	s, _ := ioutil.ReadFile("assets/data/talentBookCount.yml")
 
 	var yamlData map[string]interface{}
 	err := yaml.Unmarshal(s, &yamlData)
 
 	if err != nil {
-		return []talent.BookCount{}
+		return []talent2.BookCount{}
 	}
 
-	var talentBookCounts []talent.BookCount
+	var talentBookCounts []talent2.BookCount
 
 	for key, value := range yamlData {
 		var bookCount = make(map[string]int)
@@ -58,7 +58,7 @@ func LoadTalentBookCounts() []talent.BookCount {
 			bookCount[k.(string)] = val.(int)
 		}
 
-		talentBookCounts = append(talentBookCounts, talent.BookCount{NtoM: key, BookCount: bookCount})
+		talentBookCounts = append(talentBookCounts, talent2.BookCount{NtoM: key, BookCount: bookCount})
 	}
 
 	return talentBookCounts

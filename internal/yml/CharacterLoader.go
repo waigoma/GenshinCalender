@@ -1,7 +1,7 @@
 package yml
 
 import (
-	"github.com/waigoma/GenshinCalender/src/genshin/character"
+	"github.com/waigoma/GenshinCalender/internal/genshin/character"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"sort"
