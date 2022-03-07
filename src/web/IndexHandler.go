@@ -13,11 +13,23 @@ func RegisterIndexHandler(router *gin.Engine) {
 
 func indexGetHandle(ctx *gin.Context) {
 	characters := character.GetAllCharacters()
+
+	// region map
+	var characterMap = make(map[string][]character.Character)
+
+	for _, chara := range characters {
+		if cs, ok := characterMap[chara.JPNation]; ok {
+			characterMap[chara.JPNation] = append(cs, chara)
+		} else {
+			characterMap[chara.JPNation] = []character.Character{chara}
+		}
+	}
+
 	ctx.HTML(
 		http.StatusOK,
 		"index.html",
 		gin.H{
-			"characters": characters,
+			"characters": characterMap,
 		})
 }
 

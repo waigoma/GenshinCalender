@@ -15,12 +15,19 @@
 
     <form action="/" method="post">
 
-        {{ range $index, $character := .characters }}
-        <label class="checkbox_vert">
-            <input type="checkbox" name="selectedCharacter" value="{{ $character.ENName }}">
-            {{ $character.JPName }}
-        </label>
-        {{ end }}
+        <div class="container">
+            {{ range $region, $character := .characters }}
+            <div class="inner-container">
+                <h2>{{ $region }}</h2>
+                {{ range $index, $chara := $character }}
+                <label class="checkbox_vert">
+                    <input type="checkbox" name="selectedCharacter" value="{{ $chara.ENName }}">
+                    {{ $chara.JPName }}
+                </label>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
 
         <input class="submit_button" type="submit" value="次へ">
     </form>
