@@ -1,7 +1,6 @@
 package web
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/waigoma/GenshinCalender/internal/genshin/character"
 	"github.com/waigoma/GenshinCalender/internal/genshin/resin"
@@ -71,7 +70,6 @@ func resultPostHandle(ctx *gin.Context) {
 
 	for _, characterStat := range characterStatList {
 		for _, tal := range characterStat.Talent {
-			fmt.Println(tal)
 			if _, ok := talentTotal[tal.Name]; ok {
 				talentTotal[tal.Name] += tal.Count
 			} else {
