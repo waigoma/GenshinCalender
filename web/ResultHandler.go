@@ -2,10 +2,10 @@ package web
 
 import (
 	"github.com/gin-gonic/gin"
-	character2 "github.com/waigoma/GenshinCalender/internal/genshin/character"
+	"github.com/waigoma/GenshinCalender/internal/genshin/character"
 	"github.com/waigoma/GenshinCalender/internal/genshin/resin"
-	talent2 "github.com/waigoma/GenshinCalender/internal/genshin/talent"
-	useful2 "github.com/waigoma/GenshinCalender/pkg/useful"
+	"github.com/waigoma/GenshinCalender/internal/genshin/talent"
+	"github.com/waigoma/GenshinCalender/pkg/useful"
 	"net/http"
 	"sort"
 )
@@ -51,9 +51,9 @@ func resultPostHandle(ctx *gin.Context) {
 
 	// 必要樹脂数
 	customDrop := map[string]int{
-		"common": useful2.StringToInt(dropForm.Common),
-		"rare":   useful2.StringToInt(dropForm.Rare),
-		"epic":   useful2.StringToInt(dropForm.Epic),
+		"common": useful.StringToInt(dropForm.Common),
+		"rare":   useful.StringToInt(dropForm.Rare),
+		"epic":   useful.StringToInt(dropForm.Epic),
 	}
 
 	// 消費スタミナ量
@@ -63,7 +63,7 @@ func resultPostHandle(ctx *gin.Context) {
 	totalTime := resin.CalculateRegenTime(totalResin, resin.ModeMinute)
 
 	// 回復時間を見やすい形式に変換
-	totalTimeStr := useful2.MinuteToTime(int(totalTime))
+	totalTimeStr := useful.MinuteToTime(int(totalTime))
 
 	ctx.HTML(
 		http.StatusOK,
@@ -106,7 +106,7 @@ func initSelectForm(ctx *gin.Context) ([]SelectForm, DropForm) {
 
 		selectForm.CharacterName = characterName
 
-		if useful2.Contains(NormalAttackArray, characterName) {
+		if useful.ListStringContains(NormalAttackArray, characterName) {
 			selectForm.TalentForms = append(selectForm.TalentForms, TalentForm{
 				Type: NormalAttack,
 				From: fromArray[0][idx],
@@ -114,7 +114,7 @@ func initSelectForm(ctx *gin.Context) ([]SelectForm, DropForm) {
 			})
 		}
 
-		if useful2.Contains(SkillAttackArray, characterName) {
+		if useful.ListStringContains(SkillAttackArray, characterName) {
 			selectForm.TalentForms = append(selectForm.TalentForms, TalentForm{
 				Type: SkillAttack,
 				From: fromArray[1][idx],
@@ -122,7 +122,7 @@ func initSelectForm(ctx *gin.Context) ([]SelectForm, DropForm) {
 			})
 		}
 
-		if useful2.Contains(ULTAttackArray, characterName) {
+		if useful.ListStringContains(ULTAttackArray, characterName) {
 			selectForm.TalentForms = append(selectForm.TalentForms, TalentForm{
 				Type: ULTAttack,
 				From: fromArray[2][idx],
@@ -148,19 +148,19 @@ func initSelectForm(ctx *gin.Context) ([]SelectForm, DropForm) {
 }
 
 // html に渡す値を作成
-func getResult(selectForms []SelectForm) []character2.Stats {
-	var characterStatList []character2.Stats
+func getResult(selectForms []SelectForm) []character.Stats {
+	var characterStatList []character.Stats
 
 	// 選択したキャラクターをすべてカウント
 	for _, selectForm := range selectForms {
 		// 選択したキャラクター
-		chara := character2.GetCharacter(selectForm.CharacterName)
+		chara := character.GetCharacter(selectForm.CharacterName)
 
 		// 天賦本の数
 		talentBookCount := make(map[string]int)
 
 		for _, talentForm := range selectForm.TalentForms {
-			bookCounts := talent2.CountTalentBooks(talentForm.From, talentForm.To)
+			bookCounts := talent.CountTalentBooks(talentForm.From, talentForm.To)
 
 			for key, value := range bookCounts {
 				if v, ok := talentBookCount[key]; ok {
@@ -172,23 +172,23 @@ func getResult(selectForms []SelectForm) []character2.Stats {
 		}
 
 		// 天賦本を取得
-		talentBook := talent2.GetTalentBook(chara.TalentBook)
+		talentBook := talent.GetTalentBook(chara.TalentBook)
 
 		// 天賦本名と数保存用
-		var talents []character2.Talent
+		var talents []character.Talent
 
 		// 天賦本の数を取得
 		for key, value := range talentBookCount {
 			// 天賦レアリティ名と一致した場合
 			if val, ok := talentBook.RarityName[key]; ok {
-				talents = append(talents, character2.Talent{Type: key, Name: val, Count: value})
+				talents = append(talents, character.Talent{Type: key, Name: val, Count: value})
 			}
 		}
 
 		// 必要天賦本を少ない順にソート
 		sort.Slice(talents, func(i, j int) bool { return talents[i].Count < talents[j].Count })
 
-		characterStatList = append(characterStatList, character2.Stats{Character: chara, Talent: talents, Day: talentBook.Day})
+		characterStatList = append(characterStatList, character.Stats{Character: chara, Talent: talents, Day: talentBook.Day})
 	}
 
 	return characterStatList
