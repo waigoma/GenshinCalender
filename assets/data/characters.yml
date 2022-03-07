@@ -6,12 +6,24 @@ mondstadt:
   amber:
     name: "アンバー"
     talentBook: "freedom"
+  barbara:
+    name: "バーバラ"
+    talentBook: "freedom"
+  diona:
+    name: "ディオナ"
+    talentBook: "freedom"
   klee:
     name: "クレー"
+    talentBook: "freedom"
+  sucrose:
+    name: "スクロース"
     talentBook: "freedom"
   tartaglia:
     name: "タルタリア"
     talentBook: "freedom"
+  bennett:
+    name: "ベネット"
+    talentBook: "resistance"
   diluc:
     name: "ディルック"
     talentBook: "resistance"
@@ -24,8 +36,26 @@ mondstadt:
   mona:
     name: "モナ"
     talentBook: "resistance"
+  noelle:
+    name: "ノエル"
+    talentBook: "resistance"
+  razor:
+    name: "レザー"
+    talentBook: "resistance"
   albedo:
     name: "アルベド"
+    talentBook: "ballad"
+  fischl:
+    name: "フィッシュル"
+    talentBook: "ballad"
+  kaeya:
+    name: "ガイア"
+    talentBook: "ballad"
+  lisa:
+    name: "リサ"
+    talentBook: "ballad"
+  rosaria:
+    name: "ロサリア"
     talentBook: "ballad"
   ventis:
     name: "ウェンティー"
@@ -34,6 +64,9 @@ mondstadt:
 liyue:
   keqing:
     name: "刻晴"
+    talentBook: "prosperity"
+  ningguang:
+    name: "凝光"
     talentBook: "prosperity"
   qiqi:
     name: "七七"
@@ -44,6 +77,9 @@ liyue:
   xiao:
     name: "魈"
     talentBook: "prosperity"
+  chongyun:
+    name: "重雲"
+    talentBook: "prosperity"
   ganyu:
     name: "甘雨"
     talentBook: "diligence"
@@ -53,6 +89,24 @@ liyue:
   kazuha:
     name: "万葉"
     talentBook: "diligence"
+  xiangling:
+    name: "香菱"
+    talentBook: "diligence"
+  yunjin:
+    name: "雲菫"
+    talentBook: "diligence"
+  beidou:
+    name: "北斗"
+    talentBook: "gold"
+  xingqiu:
+    name: "行秋"
+    talentBook: "gold"
+  xinyan:
+    name: "辛炎"
+    talentBook: "gold"
+  yanfei:
+    name: "煙緋"
+    talentBook: "gold"
   zhongli:
     name: "鍾離"
     talentBook: "gold"
@@ -60,6 +114,9 @@ liyue:
 inazuma:
   kokomi:
     name: "珊瑚宮心海"
+    talentBook: "transience"
+  thoma:
+    name: "トーマ"
     talentBook: "transience"
   yoimiya:
     name: "宵宮"
@@ -70,8 +127,17 @@ inazuma:
   ayaka:
     name: "神里綾香"
     talentBook: "elegance"
+  kujousara:
+    name: "九条裟羅"
+    talentBook: "elegance"
+  gorou:
+    name: "ゴロー"
+    talentBook: "light"
   raiden:
     name: "雷電将軍"
+    talentBook: "light"
+  sayu:
+    name: "早柚"
     talentBook: "light"
   yaeMiko:
     name: "八重神子"
