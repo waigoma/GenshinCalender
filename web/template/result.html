@@ -17,11 +17,14 @@
                     <li>必要樹脂数: {{ .totalResin }} </li>
                     <li>必要濃縮樹脂: {{ .condensedResin}} </li>
                     <li>回復時間: {{ .totalTime }} </li>
-                    <br/>
-                    {{ range $talentName, $value := .totalTalent }}
-                    <li>{{ $talentName }}: {{ $value }}</li>
-                    {{ end }}
                 </ul>
+                <br/>
+                <h2>必要天賦本数:</h2>
+                <div class="inner-div">
+                    {{ range $talentName, $value := .totalTalent }}
+                    <p class="inner-name">{{ $talentName }}: {{ $value }}</p>
+                    {{ end }}
+                </div>
             </div>
 
             <div class="container">

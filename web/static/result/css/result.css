@@ -40,7 +40,6 @@
 }
 
 .inner-div {
-    flex-shrink: 0;
     margin: 0 2em;
 }
 
