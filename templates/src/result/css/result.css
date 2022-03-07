@@ -1,20 +1,26 @@
 .container {
-    margin: 10px auto;
+    margin: 10px 20%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     gap: 10%;
 }
 
 .inner-container {
-    margin-top: 2em;
+    margin: 1em 0;
     display: flex;
     justify-content: center;
+}
+
+.line {
+    border-width: 1px 0 0 0;
+    border-color: #aaaaaa;
+    margin: 1em 0;
 }
 
 .name {
     font-size: 2em;
     font-weight: bold;
-    margin-bottom: 0.5em;
 }
 
 .inner-name {
@@ -36,6 +42,6 @@
 }
 
 .out-ul {
+    list-style-type: none;
     font-size: 1.5em;
-    margin-left: 15%;
 }

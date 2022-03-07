@@ -9,14 +9,20 @@
 <body>
     <section class="main">
         <h1>必要な天賦本</h1>
-        {{ range $index, $character := .characterStatList }}
+
         <div class="container">
+
+            {{ range $index, $character := .characterStatList }}
             <h2 class="name">{{ $character.Character.JPName }}</h2>
+
             <div class="inner-container">
+
                 <div class="inner-div">
+
                     {{ range $i, $value := $character.Talent }}
                     <p class="inner-name">{{ $value.Name }}: {{ $value.Count }}</p>
                     {{ end }}
+
                     <p class="date">秘境の曜日</p>
                     <p class="date-text">
                         {{ range $i, $value := $character.Day }}
@@ -25,15 +31,21 @@
                         日
                     </p>
                 </div>
+
                 <img src="src/result/img/{{ $character.Character.TalentBook }}.png" alt="{{ $character.Character.TalentBook }}" width="200px" height="200px">
             </div>
+
+            <hr class="line">
+
+            {{ end }}
+
+            <ul class="out-ul">
+                <li>必要樹脂数: {{ .totalResin }} </li>
+                <li>必要濃縮樹脂: {{ .condensedResin}} </li>
+                <li>回復時間: {{ .totalTime }} </li>
+            </ul>
+
         </div>
-        {{ end }}
-        <ul class="out-ul">
-            <li>必要樹脂数: {{ .totalResin }} </li>
-            <li>必要濃縮樹脂: {{ .condensedResin}} </li>
-            <li>回復時間: {{ .totalTime }} </li>
-        </ul>
     </section>
 </body>
 </html>
