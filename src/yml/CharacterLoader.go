@@ -10,7 +10,7 @@ import (
 var characters []character.Character
 
 func LoadCharacters() []character.Character {
-	s, _ := ioutil.ReadFile("data/characters.yml")
+	s, _ := ioutil.ReadFile("assets/data/characters.yml")
 
 	var yamlData map[string]interface{}
 	err := yaml.Unmarshal(s, &yamlData)

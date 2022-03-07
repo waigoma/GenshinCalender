@@ -7,7 +7,7 @@ import (
 )
 
 func LoadTalentBooks() []talent.Book {
-	s, _ := ioutil.ReadFile("data/talentBooks.yml")
+	s, _ := ioutil.ReadFile("assets/data/talentBooks.yml")
 
 	var yamlData map[string]interface{}
 	err := yaml.Unmarshal(s, &yamlData)
@@ -40,7 +40,7 @@ func LoadTalentBooks() []talent.Book {
 }
 
 func LoadTalentBookCounts() []talent.BookCount {
-	s, _ := ioutil.ReadFile("data/talentBookCount.yml")
+	s, _ := ioutil.ReadFile("assets/data/talentBookCount.yml")
 
 	var yamlData map[string]interface{}
 	err := yaml.Unmarshal(s, &yamlData)
