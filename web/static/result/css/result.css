@@ -1,5 +1,17 @@
+.parent-container {
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .container {
-    margin: 10px 20%;
+    margin: 10px 10%;
     display: flex;
     justify-content: center;
     flex-direction: column;

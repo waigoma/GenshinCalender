@@ -10,40 +10,48 @@
     <section class="main">
         <h1>必要な天賦本</h1>
 
-        <div class="container">
+        <div class="parent-container">
 
-            {{ range $index, $character := .characterStatList }}
-            <h2 class="name">{{ $character.Character.JPName }}</h2>
-
-            <div class="inner-container">
-
-                <div class="inner-div">
-
-                    {{ range $i, $value := $character.Talent }}
-                    <p class="inner-name">{{ $value.Name }}: {{ $value.Count }}</p>
+            <div class="menu-container">
+                <ul class="out-ul">
+                    <li>必要樹脂数: {{ .totalResin }} </li>
+                    <li>必要濃縮樹脂: {{ .condensedResin}} </li>
+                    <li>回復時間: {{ .totalTime }} </li>
+                    <br/>
+                    {{ range $talentName, $value := .totalTalent }}
+                    <li>{{ $talentName }}: {{ $value }}</li>
                     {{ end }}
-
-                    <p class="date">秘境の曜日</p>
-                    <p class="date-text">
-                        {{ range $i, $value := $character.Day }}
-                        {{ $value }} /
-                        {{ end }}
-                        日
-                    </p>
-                </div>
-
-                <img src="../static/result/img/{{ $character.Character.TalentBook }}.png" alt="{{ $character.Character.TalentBook }}" width="200px" height="200px">
+                </ul>
             </div>
 
-            <hr class="line">
+            <div class="container">
+                {{ range $index, $character := .characterStatList }}
+                <h2 class="name">{{ $character.Character.JPName }}</h2>
 
-            {{ end }}
+                <div class="inner-container">
 
-            <ul class="out-ul">
-                <li>必要樹脂数: {{ .totalResin }} </li>
-                <li>必要濃縮樹脂: {{ .condensedResin}} </li>
-                <li>回復時間: {{ .totalTime }} </li>
-            </ul>
+                    <div class="inner-div">
+
+                        {{ range $i, $talent := $character.Talent }}
+                        <p class="inner-name">{{ $talent.Name }}: {{ $talent.Count }}</p>
+                        {{ end }}
+
+                        <p class="date">秘境の曜日</p>
+                        <p class="date-text">
+                            {{ range $i, $day := $character.Day }}
+                            {{ $day }} /
+                            {{ end }}
+                            日
+                        </p>
+                    </div>
+
+                    <img src="../static/result/img/{{ $character.Character.TalentBook }}.png" alt="{{ $character.Character.TalentBook }}" width="200px" height="200px">
+                </div>
+
+                <hr class="line">
+
+                {{ end }}
+            </div>
 
         </div>
     </section>

@@ -10,10 +10,8 @@ func ListStringContains(baseStr []string, matchStr string) bool {
 }
 
 func MapStringContains(baseMap map[string]interface{}, matchStr string) bool {
-	for key, _ := range baseMap {
-		if key == matchStr {
-			return true
-		}
+	if _, ok := baseMap[matchStr]; ok {
+		return true
 	}
 	return false
 }

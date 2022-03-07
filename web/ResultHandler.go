@@ -1,6 +1,7 @@
 package web
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/waigoma/GenshinCalender/internal/genshin/character"
 	"github.com/waigoma/GenshinCalender/internal/genshin/resin"
@@ -65,6 +66,20 @@ func resultPostHandle(ctx *gin.Context) {
 	// 回復時間を見やすい形式に変換
 	totalTimeStr := useful.MinuteToTime(int(totalTime))
 
+	// 天賦本のトータルを求める
+	talentTotal := make(map[string]int)
+
+	for _, characterStat := range characterStatList {
+		for _, tal := range characterStat.Talent {
+			fmt.Println(tal)
+			if _, ok := talentTotal[tal.Name]; ok {
+				talentTotal[tal.Name] += tal.Count
+			} else {
+				talentTotal[tal.Name] = tal.Count
+			}
+		}
+	}
+
 	ctx.HTML(
 		http.StatusOK,
 		"result.html",
@@ -73,6 +88,7 @@ func resultPostHandle(ctx *gin.Context) {
 			"totalResin":        totalResin,
 			"condensedResin":    totalResin / 40,
 			"totalTime":         totalTimeStr,
+			"totalTalent":       talentTotal,
 		})
 }
 
