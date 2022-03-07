@@ -1,75 +1,78 @@
 # モンド
-aloy:
-  name: "アーロイ"
-  talentBook: "freedom"
-amber:
-  name: "アンバー"
-  talentBook: "freedom"
-klee:
-  name: "クレー"
-  talentBook: "freedom"
-tartaglia:
-  name: "タルタリア"
-  talentBook: "freedom"
-diluc:
-  name: "ディルック"
-  talentBook: "resistance"
-eula:
-  name: "エウルア"
-  talentBook: "resistance"
-jean:
-  name: "ジン"
-  talentBook: "resistance"
-mona:
-  name: "モナ"
-  talentBook: "resistance"
-albedo:
-  name: "アルベド"
-  talentBook: "ballad"
-ventis:
-  name: "ウェンティー"
-  talentBook: "ballad"
+mondstadt:
+  aloy:
+    name: "アーロイ"
+    talentBook: "freedom"
+  amber:
+    name: "アンバー"
+    talentBook: "freedom"
+  klee:
+    name: "クレー"
+    talentBook: "freedom"
+  tartaglia:
+    name: "タルタリア"
+    talentBook: "freedom"
+  diluc:
+    name: "ディルック"
+    talentBook: "resistance"
+  eula:
+    name: "エウルア"
+    talentBook: "resistance"
+  jean:
+    name: "ジン"
+    talentBook: "resistance"
+  mona:
+    name: "モナ"
+    talentBook: "resistance"
+  albedo:
+    name: "アルベド"
+    talentBook: "ballad"
+  ventis:
+    name: "ウェンティー"
+    talentBook: "ballad"
 # 璃月
-keqing:
-  name: "刻晴"
-  talentBook: "prosperity"
-qiqi:
-  name: "七七"
-  talentBook: "prosperity"
-shenhe:
-  name: "申鶴"
-  talentBook: "prosperity"
-xiao:
-  name: "魈"
-  talentBook: "prosperity"
-ganyu:
-  name: "甘雨"
-  talentBook: "diligence"
-hutao:
-  name: "胡桃"
-  talentBook: "diligence"
-kazuha:
-  name: "万葉"
-  talentBook: "diligence"
-zhongli:
-  name: "鍾離"
-  talentBook: "gold"
+liyue:
+  keqing:
+    name: "刻晴"
+    talentBook: "prosperity"
+  qiqi:
+    name: "七七"
+    talentBook: "prosperity"
+  shenhe:
+    name: "申鶴"
+    talentBook: "prosperity"
+  xiao:
+    name: "魈"
+    talentBook: "prosperity"
+  ganyu:
+    name: "甘雨"
+    talentBook: "diligence"
+  hutao:
+    name: "胡桃"
+    talentBook: "diligence"
+  kazuha:
+    name: "万葉"
+    talentBook: "diligence"
+  zhongli:
+    name: "鍾離"
+    talentBook: "gold"
 # 稲妻
-kokomi:
-  name: "珊瑚宮心海"
-  talentBook: "transience"
-yoimiya:
-  name: "宵宮"
-  talentBook: "transience"
-itto:
-  name: "荒瀧一斗"
-  talentBook: "elegance"
-ayaka:
-  name: "神里綾香"
-  talentBook: "elegance"
-raiden:
-  name: "雷電将軍"
-  talentBook: "light"
-yaeMiko:
-  name: "八重神子"
-  talentBook: "light"
+inazuma:
+  kokomi:
+    name: "珊瑚宮心海"
+    talentBook: "transience"
+  yoimiya:
+    name: "宵宮"
+    talentBook: "transience"
+  itto:
+    name: "荒瀧一斗"
+    talentBook: "elegance"
+  ayaka:
+    name: "神里綾香"
+    talentBook: "elegance"
+  raiden:
+    name: "雷電将軍"
+    talentBook: "light"
+  yaeMiko:
+    name: "八重神子"
+    talentBook: "light"

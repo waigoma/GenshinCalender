@@ -20,18 +20,34 @@ func LoadCharacters() []character.Character {
 	}
 
 	for key, value := range yamlData {
-		var nm string
-		var tb string
-		for k, v := range value.(map[interface{}]interface{}) {
-			switch k {
-			case "name":
-				nm = v.(string)
-			case "talentBook":
-				tb = v.(string)
-			}
+		var nation string
+
+		switch key {
+		case "mondstadt":
+			nation = "モンド"
+		case "liyue":
+			nation = "璃月"
+		case "inazuma":
+			nation = "稲妻"
 		}
 
-		characters = append(characters, character.Character{ENName: key, JPName: nm, TalentBook: tb})
+		var enName string
+		var jpName string
+		var book string
+
+		for ke, val := range value.(map[interface{}]interface{}) {
+			enName = ke.(string)
+			for k, v := range val.(map[interface{}]interface{}) {
+				switch k {
+				case "name":
+					jpName = v.(string)
+				case "talentBook":
+					book = v.(string)
+				}
+			}
+
+			characters = append(characters, character.Character{ENName: enName, JPName: jpName, ENNation: key, JPNation: nation, TalentBook: book})
+		}
 	}
 
 	sortCharacters()

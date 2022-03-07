@@ -5,6 +5,8 @@ var characters []Character
 type Character struct {
 	ENName     string
 	JPName     string
+	ENNation   string
+	JPNation   string
 	TalentBook string
 }
 
