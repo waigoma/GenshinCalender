@@ -27,9 +27,9 @@ func GetTalentBookCount(ntoM string) BookCount {
 	return BookCount{}
 }
 
-func CountTalentBooks(fromStr string, toStr string) map[string]int {
+func CountTalentBooks(fromStr string, toStr string) (int, map[string]int) {
 	if fromStr == "1" && toStr == "10" {
-		return GetTalentBookCount("1-10").BookCount
+		return GetTalentBookCount("1-10").Mora, GetTalentBookCount("1-10").BookCount
 	}
 
 	from := useful.StringToInt(fromStr)
@@ -37,6 +37,7 @@ func CountTalentBooks(fromStr string, toStr string) map[string]int {
 	fromTo := to - from
 
 	talentBookCount := make(map[string]int)
+	totalMora := 0
 
 	for i := 0; i < fromTo; i++ {
 		fromLevel := from + i
@@ -53,7 +54,9 @@ func CountTalentBooks(fromStr string, toStr string) map[string]int {
 				talentBookCount[key] = value
 			}
 		}
+
+		totalMora += count.Mora
 	}
 
-	return talentBookCount
+	return totalMora, talentBookCount
 }

@@ -67,8 +67,10 @@ func resultPostHandle(ctx *gin.Context) {
 
 	// 天賦本のトータルを求める
 	talentTotal := make(map[string]int)
+	totalMora := 0
 
 	for _, characterStat := range characterStatList {
+		totalMora += characterStat.Mora
 		for _, tal := range characterStat.Talent {
 			if _, ok := talentTotal[tal.Name]; ok {
 				talentTotal[tal.Name] += tal.Count
@@ -83,6 +85,7 @@ func resultPostHandle(ctx *gin.Context) {
 		"result.html",
 		gin.H{
 			"characterStatList": characterStatList,
+			"totalMora":         totalMora,
 			"totalResin":        totalResin,
 			"condensedResin":    totalResin / 40,
 			"totalTime":         totalTimeStr,
@@ -172,9 +175,10 @@ func getResult(selectForms []SelectForm) []character.Stats {
 
 		// 天賦本の数
 		talentBookCount := make(map[string]int)
+		mora := 0
 
 		for _, talentForm := range selectForm.TalentForms {
-			bookCounts := talent.CountTalentBooks(talentForm.From, talentForm.To)
+			m, bookCounts := talent.CountTalentBooks(talentForm.From, talentForm.To)
 
 			for key, value := range bookCounts {
 				if v, ok := talentBookCount[key]; ok {
@@ -183,6 +187,7 @@ func getResult(selectForms []SelectForm) []character.Stats {
 					talentBookCount[key] = value
 				}
 			}
+			mora += m
 		}
 
 		// 天賦本を取得
@@ -202,7 +207,7 @@ func getResult(selectForms []SelectForm) []character.Stats {
 		// 必要天賦本を少ない順にソート
 		sort.Slice(talents, func(i, j int) bool { return talents[i].Count < talents[j].Count })
 
-		characterStatList = append(characterStatList, character.Stats{Character: chara, Talent: talents, Day: talentBook.Day})
+		characterStatList = append(characterStatList, character.Stats{Character: chara, Talent: talents, Mora: mora, Day: talentBook.Day})
 	}
 
 	return characterStatList

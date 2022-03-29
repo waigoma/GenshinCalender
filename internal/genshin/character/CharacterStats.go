@@ -3,6 +3,7 @@ package character
 type Stats struct {
 	Character Character
 	Talent    []Talent
+	Mora      int
 	Day       []string
 }
 
