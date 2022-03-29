@@ -85,9 +85,9 @@ func resultPostHandle(ctx *gin.Context) {
 		"result.html",
 		gin.H{
 			"characterStatList": characterStatList,
-			"totalMora":         totalMora,
-			"totalResin":        totalResin,
-			"condensedResin":    totalResin / 40,
+			"totalMora":         useful.SplitNumber(totalMora),
+			"totalResin":        useful.SplitNumber(totalResin),
+			"condensedResin":    useful.SplitNumber(totalResin / 40),
 			"totalTime":         totalTimeStr,
 			"totalTalent":       talentTotal,
 		})
