@@ -1,6 +1,10 @@
 package useful
 
-import "strconv"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 func MinuteToTime(minutes int) string {
 	var time string
@@ -22,4 +26,26 @@ func MinuteToTime(minutes int) string {
 	}
 
 	return time
+}
+
+func SplitNumber(price int) string {
+
+	groupingSize := 3
+	groupingSeparator := ","
+
+	priceStr := fmt.Sprint(price)
+	size := len(priceStr)
+	sliceSize := (len(priceStr) + groupingSize - 1) / groupingSize
+	priceSlice := make([]string, sliceSize)
+
+	for i := range priceSlice {
+		start := size - (sliceSize-i)*groupingSize
+		end := start + groupingSize
+		if start < 0 {
+			start = 0
+		}
+		priceSlice[i] = priceStr[start:end]
+	}
+
+	return strings.Join(priceSlice, groupingSeparator)
 }
