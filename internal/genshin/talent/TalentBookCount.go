@@ -9,6 +9,7 @@ var talentBookCounts []BookCount
 
 type BookCount struct {
 	NtoM      string
+	Mora      int
 	BookCount map[string]int
 }
 

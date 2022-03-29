@@ -49,17 +49,24 @@ func LoadTalentBookCounts() []talent.BookCount {
 		return []talent.BookCount{}
 	}
 
-	var talentBookCounts []talent.BookCount
+	var talentCounts []talent.BookCount
 
 	for key, value := range yamlData {
+		var mora int
 		var bookCount = make(map[string]int)
 
 		for k, val := range value.(map[interface{}]interface{}) {
+			if k.(string) == "mora" {
+				mora = val.(int)
+				continue
+			}
+
 			bookCount[k.(string)] = val.(int)
+			println(k.(string), val.(int))
 		}
 
-		talentBookCounts = append(talentBookCounts, talent.BookCount{NtoM: key, BookCount: bookCount})
+		talentCounts = append(talentCounts, talent.BookCount{NtoM: key, Mora: mora, BookCount: bookCount})
 	}
 
-	return talentBookCounts
+	return talentCounts
 }
