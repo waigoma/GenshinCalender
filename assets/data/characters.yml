@@ -77,6 +77,9 @@ liyue:
   xiao:
     name: "魈"
     talentBook: "prosperity"
+  yelan:
+    name: "夜蘭"
+    talentBook: "prosperity"
   chongyun:
     name: "重雲"
     talentBook: "prosperity"
@@ -127,8 +130,14 @@ inazuma:
   ayaka:
     name: "神里綾香"
     talentBook: "elegance"
+  ayato:
+    name: "神里綾人"
+    talentBook: "elegance"
   kujousara:
     name: "九条裟羅"
+    talentBook: "elegance"
+  shinobu:
+    name: "久岐忍"
     talentBook: "elegance"
   gorou:
     name: "ゴロー"
