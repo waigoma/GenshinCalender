@@ -29,6 +29,8 @@ func LoadCharacters() []character.Character {
 			nation = "璃月"
 		case "inazuma":
 			nation = "稲妻"
+		case "sumeru":
+			nation = "スメール"
 		}
 
 		var enName string
