@@ -154,3 +154,23 @@ inazuma:
   heizou:
     name: "鹿野院平蔵"
     talentBook: "light"
+# スメール
+sumeru:
+  candace:
+    name: "キャンディス"
+    talentBook: "admonition"
+  cyno:
+    name: "セノ"
+    talentBook: "admonition"
+  tighnari:
+    name: "ティナリ"
+    talentBook: "admonition"
+  nahida:
+    name: "ナヒーダ"
+    talentBook: "ingenuity"
+  dori:
+    name: "ドリー"
+    talentBook: "ingenuity"
+  collei:
+    name: "コレイ"
+    talentBook: "praxis"

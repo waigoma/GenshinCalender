@@ -66,3 +66,26 @@ light:
   common: "「天光」の教え"
   rare: "「天光」の導き"
   epic: "「天光」の哲学"
+
+# スメール
+admonition:
+  day:
+    - "月"
+    - "木"
+  common: "「忠言」の教え"
+  rare: "「忠言」の導き"
+  epic: "「忠言」の哲学"
+ingenuity:
+  day:
+    - "火"
+    - "金"
+  common: "「創意」の教え"
+  rare: "「創意」の導き"
+  epic: "「創意」の哲学"
+praxis:
+  day:
+    - "水"
+    - "土"
+  common: "「篤行」の教え"
+  rare: "「篤行」の導き"
+  epic: "「篤行」の哲学"
