@@ -54,6 +54,9 @@ mondstadt:
   lisa:
     name: "リサ"
     talentBook: "ballad"
+  mika:
+    name: "ミカ"
+    talentBook: "ballad"
   rosaria:
     name: "ロサリア"
     talentBook: "ballad"
@@ -95,9 +98,15 @@ liyue:
   xiangling:
     name: "香菱"
     talentBook: "diligence"
+  yaoyao:
+    name: "ヨォーヨ"
+    talentBook: "diligence"
   yunjin:
     name: "雲菫"
     talentBook: "diligence"
+  baizhu:
+    name: "白朮"
+    talentBook: "gold"
   beidou:
     name: "北斗"
     talentBook: "gold"
@@ -117,6 +126,9 @@ liyue:
 inazuma:
   kokomi:
     name: "珊瑚宮心海"
+    talentBook: "transience"
+  heizou:
+    name: "鹿野院平蔵"
     talentBook: "transience"
   thoma:
     name: "トーマ"
@@ -151,9 +163,6 @@ inazuma:
   yaeMiko:
     name: "八重神子"
     talentBook: "light"
-  heizou:
-    name: "鹿野院平蔵"
-    talentBook: "light"
 # スメール
 sumeru:
   candace:
@@ -162,15 +171,36 @@ sumeru:
   cyno:
     name: "セノ"
     talentBook: "admonition"
+  faruzan:
+    name: "ファルザン"
+    talentBook: "admonition"
   tighnari:
     name: "ティナリ"
     talentBook: "admonition"
-  nahida:
-    name: "ナヒーダ"
+  alhaitham:
+    name: "アルハイゼン"
     talentBook: "ingenuity"
   dori:
     name: "ドリー"
     talentBook: "ingenuity"
+  kaveh:
+    name: "カーヴェ"
+    talentBook: "ingenuity"
+  layla:
+    name: "レイラ"
+    talentBook: "ingenuity"
+  nahida:
+    name: "ナヒーダ"
+    talentBook: "ingenuity"
   collei:
     name: "コレイ"
+    talentBook: "praxis"
+  dehya:
+    name: "ディシア"
+    talentBook: "praxis"
+  nilou:
+    name: "ニィロウ"
+    talentBook: "praxis"
+  wanderer:
+    name: "放浪者"
     talentBook: "praxis"
