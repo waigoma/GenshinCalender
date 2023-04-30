@@ -16,7 +16,8 @@
     <form action="/" method="post">
 
         <div class="container">
-            {{ range $region, $character := .characters }}
+        {{ range $characters := .characters }}
+            {{ range $region, $character := $characters }}
             <div class="inner-container">
                 <h2>{{ $region }}</h2>
                 {{ range $index, $chara := $character }}
@@ -27,6 +28,7 @@
                 {{ end }}
             </div>
             {{ end }}
+        {{ end }}
         </div>
 
         <input class="submit_button" type="submit" value="次へ">

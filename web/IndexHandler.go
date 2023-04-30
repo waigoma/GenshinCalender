@@ -25,11 +25,19 @@ func indexGetHandle(ctx *gin.Context) {
 		}
 	}
 
+	// sort by region
+	var keys = []string{"モンド", "璃月", "稲妻", "スメール"}
+	var characterMapList []map[string][]character.Character
+
+	for _, key := range keys {
+		characterMapList = append(characterMapList, map[string][]character.Character{key: characterMap[key]})
+	}
+
 	ctx.HTML(
 		http.StatusOK,
 		"index.html",
 		gin.H{
-			"characters": characterMap,
+			"characters": characterMapList,
 		})
 }
 
