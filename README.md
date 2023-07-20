@@ -1,4 +1,7 @@
 # GenshinCalender
+~~※ heroku が有料になったので、現在使用不可。~~  
+Google Cloud Run に移行できたので使用可能。
+
 原神のキャラ育成をサポートする web アプリ
 
 ## 機能
