@@ -14,3 +14,9 @@ Google Cloud Run に移行できたので使用可能。
 4. 秘境 1回分のドロップ数を設定します。
 5. 設定し終えたら、次へのボタンを押します。
 6. 最後に、選択したキャラに必要な素材と、秘境の曜日、総必要樹脂数、濃縮樹脂数、樹脂回復の時間が表示されます。
+
+
+## Deploy memo
+```
+gcloud run deploy genshin-calendar --region=asia-northeast1 --source=.
+```
