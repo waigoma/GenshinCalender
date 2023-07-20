@@ -9,8 +9,12 @@ import (
 
 var characters []character.Character
 
-func LoadCharacters() []character.Character {
-	s, _ := ioutil.ReadFile("assets/data/characters.yml")
+func LoadCharacters(isLocal bool) []character.Character {
+	filename := "assets/data/characters.yml"
+	if !isLocal {
+		filename = "/app/" + filename
+	}
+	s, _ := ioutil.ReadFile(filename)
 
 	var yamlData map[string]interface{}
 	err := yaml.Unmarshal(s, &yamlData)

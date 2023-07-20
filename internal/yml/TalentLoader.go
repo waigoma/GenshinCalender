@@ -6,8 +6,12 @@ import (
 	"io/ioutil"
 )
 
-func LoadTalentBooks() []talent.Book {
-	s, _ := ioutil.ReadFile("assets/data/talentBooks.yml")
+func LoadTalentBooks(isLocal bool) []talent.Book {
+	filename := "assets/data/talentBooks.yml"
+	if !isLocal {
+		filename = "/app/" + filename
+	}
+	s, _ := ioutil.ReadFile(filename)
 
 	var yamlData map[string]interface{}
 	err := yaml.Unmarshal(s, &yamlData)
@@ -39,8 +43,12 @@ func LoadTalentBooks() []talent.Book {
 	return talentBooks
 }
 
-func LoadTalentBookCounts() []talent.BookCount {
-	s, _ := ioutil.ReadFile("assets/data/talentCount.yml")
+func LoadTalentBookCounts(isLocal bool) []talent.BookCount {
+	filename := "assets/data/talentCount.yml"
+	if !isLocal {
+		filename = "/app/" + filename
+	}
+	s, _ := ioutil.ReadFile(filename)
 
 	var yamlData map[string]interface{}
 	err := yaml.Unmarshal(s, &yamlData)
