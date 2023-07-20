@@ -1,0 +1,5 @@
+set GOOS=linux
+set GOARCH=amd64
+go build -o genshin-calender,x64 cmd/main/main.go
+
+GOOS=linux GOARCH=amd64 go build -o genshin-calender,x64 cmd/main/main.go
